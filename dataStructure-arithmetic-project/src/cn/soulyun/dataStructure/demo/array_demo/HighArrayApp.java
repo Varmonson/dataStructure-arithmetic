@@ -35,10 +35,21 @@ public class HighArrayApp {
             System.out.println("Can't find " + searchKey);
 
         // 删除
-        arr.delete(00);
-        arr.delete(55);
-        arr.delete(99);
+//        arr.delete(00);
+//        arr.delete(55);
+//        arr.delete(99);
 
+        arr.display();
+
+        // 获取数组最大值
+        long max = arr.getMax();
+        System.out.println("数组最大值为：" + max);
+
+        // 移出数组最大值
+        long delMax = arr.removeMax();
+        System.out.println("已删除最大值,最大值为：" + delMax);
+
+        // 打印删除最大值后的数组
         arr.display();
     }
 

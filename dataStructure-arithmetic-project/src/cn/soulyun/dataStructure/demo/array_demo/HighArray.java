@@ -1,5 +1,7 @@
 package cn.soulyun.dataStructure.demo.array_demo;
 
+import sun.awt.SunHints;
+
 /**
  * @program: dataStructure-arithmetic-project
  * @description: 封装一个数组类，提供增删查方法
@@ -80,5 +82,44 @@ public class HighArray {
         for (int j = 0; j < nElement; j++)
             System.out.print(a[j] + " ");
         System.out.println("");
+    }
+
+    /**
+     * 获取数组中最大元素
+     * @return
+     */
+    public long getMax(){
+        if(nElement == 0)   // 数组为空，返回-1
+            return -1;
+
+        long max = a[0];  // 把数组第一个元素赋给max
+
+        for(int j=0; j < nElement; j++)   // 遍历数组
+            if(max < a[j])    // 如果该元素比最大值大，将该元素赋值给最大值
+                max = a[j];
+
+        return max;
+    }
+
+    /**
+     * 移出数组中最大元素，并返回该元素
+     * @return
+     */
+    public long removeMax(){
+        if(nElement == 0)   // 数组为空，返回-1
+            return -1;
+
+        long max = a[0];  // 把数组第一个元素赋给max
+
+        for(int j=0; j < nElement; j++)   // 遍历数组
+            if(max < a[j])    // 如果该元素比最大值大，将该元素赋值给最大值
+                max = a[j];
+
+        boolean flag = this.delete(max);   // 调用删除元素的方法
+
+        if(flag)
+            return max;    // 删除成功，返回该元素
+        else
+            throw new RuntimeException("删除最大值失败!");
     }
 }
